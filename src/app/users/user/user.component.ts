@@ -5,13 +5,11 @@ import { UserService } from '../user.service';
   selector   : 'msg-user',
   templateUrl: './user.component.html',
   styleUrls  : [ './user.component.scss' ],
-  providers  : [ UserService,
-                 <ValueProvider>{ provide: 'bezeichner', useValue: 'wert'}
-  ]
+  providers  : [ UserService ]
 } )
 export class UserComponent implements OnInit {
 
-  constructor ( public $user: UserService, @Inject('bezeichner') val: string ) {
+  constructor ( public $user: UserService, @Inject('bezeichner') val: string[] ) {
     console.log ( val );
   }
 

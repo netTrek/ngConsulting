@@ -16,7 +16,7 @@ import { UsersModule } from './users/users.module';
     UsersModule
   ],
   providers   : [
-    <ValueProvider>{ provide: 'bezeichner', useValue: 'default' }
+    <ValueProvider>{ provide: 'bezeichner', useValue: 'wert', multi: true }
   ],
   bootstrap   : [ AppComponent ]
 } )

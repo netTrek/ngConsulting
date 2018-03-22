@@ -1,7 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<msg-user></msg-user>
-<msg-user></msg-user>
-<button (click)="setName()">set name</button>
+<nav>
+  <a routerLink="/home">home</a> | <a routerLink="/user">user</a>
+</nav>
 
 <router-outlet></router-outlet>
+<button (click)="setName()">set name</button>

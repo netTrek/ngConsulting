@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule ( {
   declarations: [
@@ -13,7 +14,8 @@ import { UsersModule } from './users/users.module';
   imports     : [
     BrowserModule,
     AppRoutingModule,
-    UsersModule
+    UsersModule,
+    HomeModule
   ],
   providers   : [
     <ValueProvider>{ provide: 'bezeichner', useValue: 'wert', multi: true }

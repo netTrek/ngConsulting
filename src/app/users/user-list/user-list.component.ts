@@ -9,8 +9,8 @@ import { MyClass } from '../users.module';
 } )
 export class UserListComponent implements OnInit {
 
-  constructor ( private user$: UserService, @Inject(MyClass) myClass: MyClass ) {
-    console.log ( myClass );
+  constructor ( private user$: UserService, @Inject(MyClass) myClass: MyClass, @Inject('userService') userService: any ) {
+    console.log ( myClass, userService );
   }
 
   ngOnInit () {

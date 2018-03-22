@@ -1,4 +1,4 @@
-import { ClassProvider, ExistingProvider, forwardRef, NgModule, ValueProvider } from '@angular/core';
+import { ClassProvider, ExistingProvider, FactoryProvider, forwardRef, NgModule, ValueProvider } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserService } from './user.service';
 import { UserComponent } from './user/user.component';
@@ -19,7 +19,10 @@ export class MyClass {
     UserService,
     <ValueProvider>{ provide: 'bezeichner', useValue: 'initial wert', multi: true },
     <ClassProvider>{ provide: MyClass, useClass: MyClass },
-    <ExistingProvider>{ provide: 'userService', useExisting: UserService  }
+    <ExistingProvider>{ provide: 'userService', useExisting: UserService  },
+    <FactoryProvider>{ provide: 'fact', useFactory: ( werte: string[]) => {
+      return werte[0];
+      }, deps: ['bezeichner'] }
   ],
   exports     : [ UserComponent,
                   UserListComponent

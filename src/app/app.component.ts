@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
+import { UserService } from './users/user.service';
 
-@Component({
-  selector: 'msg-root',
+@Component ( {
+  selector   : 'msg-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
+  styleUrls  : [ './app.component.scss' ]
+} )
 export class AppComponent {
   title = 'msg';
+
+  constructor ( public $user: UserService ) {
+  }
+
+  setName() {
+    this.$user.name = 'Saban Ünlü';
+  }
 }

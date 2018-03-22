@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { UserService } from '../user.service';
 import { MyClass } from '../users.module';
+import { UserComponent } from '../user/user.component';
 
 @Component ( {
   selector   : 'msg-user-list',
@@ -9,8 +10,10 @@ import { MyClass } from '../users.module';
 } )
 export class UserListComponent implements OnInit {
 
-  constructor ( private user$: UserService, @Inject(MyClass) myClass: MyClass, @Inject('fact') fact: string ) {
-    console.log ( myClass, fact );
+  constructor ( private user$: UserService, @Inject(MyClass) myClass: MyClass,
+                @Inject('fact') fact: string, @Optional() @Inject('fact') wert: string = 'nicht provided',
+                userComponent: UserComponent ) {
+    console.log ( myClass, fact, wert, userComponent );
   }
 
   ngOnInit () {

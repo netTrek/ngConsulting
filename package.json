@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:aot": "ng serve --aot",
     "start:proxy": "ng server --open --host 0.0.0.0 --proxy-config mock/proxy.config.json",
     "build": "ng build --prod",
     "test": "ng test",

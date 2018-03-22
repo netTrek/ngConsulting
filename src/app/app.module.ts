@@ -1,22 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ValueProvider } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 
-
-@NgModule({
+@NgModule ( {
   declarations: [
     AppComponent
   ],
-  imports: [
+  imports     : [
     BrowserModule,
     AppRoutingModule,
     UsersModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+  providers   : [
+    <ValueProvider>{ provide: 'bezeichner', useValue: 'default' }
+  ],
+  bootstrap   : [ AppComponent ]
+} )
+export class AppModule {
+}

@@ -5,14 +5,15 @@ import { UserListComponent } from './user-list/user-list.component';
 import { RouterModule } from '@angular/router';
 import { UserItemComponent } from './user-item/user-item.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
+import { UserHeaderDirective } from './user-header.directive';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild( [ {path: '', component: UserComponent} ] )
   ],
-  declarations: [UserComponent, UserListComponent, UserItemComponent, UserHeaderComponent],
+  declarations: [UserComponent, UserListComponent, UserItemComponent, UserHeaderComponent, UserHeaderDirective],
   providers: [],
-  exports: [UserComponent, UserListComponent, UserItemComponent, UserHeaderComponent]
+  exports: [UserComponent, UserListComponent, UserItemComponent, UserHeaderComponent, UserHeaderDirective]
 })
 export class UsersModule { }

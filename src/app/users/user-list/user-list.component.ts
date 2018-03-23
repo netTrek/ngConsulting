@@ -1,7 +1,4 @@
-import {
-  AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, Renderer2, ViewChild, ViewChildren,
-  ViewContainerRef
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { UserHeaderComponent } from '../user-header/user-header.component';
 import { UserItemComponent } from '../user-item/user-item.component';
 import { Subscription } from 'rxjs/Subscription';
@@ -16,6 +13,9 @@ export class UserListComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild ( UserHeaderComponent )
   header: UserHeaderComponent;
 
+  @ViewChild ('hr')
+  hrRef: ElementRef;
+
   @ViewChildren ( UserItemComponent )
   userItems: QueryList<UserItemComponent>;
   private subscription: Subscription;
@@ -27,7 +27,8 @@ export class UserListComponent implements OnInit, AfterViewInit, OnDestroy {
                       5
   ];
 
-  constructor () {} 
+  constructor ( private rederer: Renderer2 ) {
+  }
 
   ngOnInit () {
   }
@@ -36,6 +37,8 @@ export class UserListComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log ( this.header );
     this.logItems();
     this.subscription = this.userItems.changes.subscribe( () => this.logItems() );
+    // this.hrRef.nativeElement.style.borderColor = 'yellow';
+    this.rederer.setStyle( this.hrRef.nativeElement, 'border-color', 'blue' );
   }
 
   ngOnDestroy (): void {

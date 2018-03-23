@@ -1,7 +1,7 @@
 import {
   AfterContentInit,
   AfterViewInit,
-  Component, ContentChild,
+  Component, ComponentFactory, ComponentFactoryResolver, ContentChild,
   EmbeddedViewRef,
   OnDestroy,
   OnInit,
@@ -17,6 +17,7 @@ import { UserItemComponent } from '../user-item/user-item.component';
 import { Subscription } from 'rxjs/Subscription';
 import { UserHeaderDirective } from '../user-header.directive';
 import { UserDynamicComponent } from '../user-dynamic/user-dynamic.component';
+import { ComponentRef } from '@angular/core/src/linker/component_factory';
 
 @Component ( {
   selector   : 'msg-user-list',
@@ -39,18 +40,21 @@ export class UserListComponent implements OnInit, AfterViewInit, OnDestroy, Afte
 
   private subscription: Subscription;
 
-  items: number[] = [ 1,
-                      2,
-                      3,
-                      4,
-                      5
+  items: number[]       = [ 1,
+                            2,
+                            3,
+                            4,
+                            5
   ];
   dynamicComponentClass = UserDynamicComponent;
 
-  constructor ( private viewContainerRef: ViewContainerRef ) {
+  constructor ( private viewContainerRef: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver ) {
   }
 
   ngOnInit () {
+    const compFactory: ComponentFactory<UserDynamicComponent> = this.componentFactoryResolver.resolveComponentFactory ( UserDynamicComponent );
+    const dynUserRef: ComponentRef<UserDynamicComponent>      = this.viewContainerRef.createComponent<UserDynamicComponent> ( compFactory );
+    console.log ( dynUserRef );
   }
 
   ngAfterContentInit (): void {

@@ -1,21 +1,31 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, OnChanges, OnInit, SimpleChanges, EventEmitter, HostListener } from '@angular/core';
 
-@Component({
-  selector: 'msg-user-item',
+@Component ( {
+  selector   : 'msg-user-item',
   templateUrl: './user-item.component.html',
-  styleUrls: ['./user-item.component.scss']
-})
+  styleUrls  : [ './user-item.component.scss' ]
+} )
 export class UserItemComponent implements OnInit, OnChanges {
 
-  @Input()
+  @Input ()
   name: string;
 
-  constructor() { }
+  @Output ()
+  selectedName: EventEmitter<string> = new EventEmitter<string> ();
 
-  ngOnInit() {
+  constructor () {
   }
+
+  ngOnInit () {
+  }
+
   ngOnChanges ( changes: SimpleChanges ): void {
     console.log ( changes );
+  }
+
+  @HostListener('click')
+  private click () {
+    this.selectedName.emit( this.name );
   }
 
 }

@@ -23,4 +23,8 @@ export class UserListComponent implements OnInit {
   changeFirstItem () {
     this.items[ 0 ] = this.items[ 0 ] = 'angular';
   }
+
+  onNameSelected ( name: string ) {
+    console.log ( 'selected Usr', name );
+  }
 }

@@ -1,11 +1,4 @@
 <h3>user-list works!</h3>
 <msg-user-header></msg-user-header>
-<msg-user-item *ngFor="let item of items">{{item}}</msg-user-item>
-<button (click)="delItem()">delete</button>
-
-<ng-template #hr>
-  <hr>
-</ng-template>
-
-<ng-container *ngTemplateOutlet="hr"></ng-container>
-<ng-container *ngComponentOutlet="dynamicComponentClass"></ng-container>
+<msg-user-item *ngFor="let item of items" [name]="item"></msg-user-item>
+<button (click)="changeFirstItem()">change 1st</button>

@@ -1,88 +1,26 @@
 import {
-  AfterContentInit,
-  AfterViewInit,
-  Component, ComponentFactory, ComponentFactoryResolver, ContentChild,
-  EmbeddedViewRef,
-  OnDestroy,
-  OnInit,
-  QueryList,
-  Renderer2,
-  TemplateRef,
-  ViewChild,
-  ViewChildren,
-  ViewContainerRef
+  Component,
+  OnInit
 } from '@angular/core';
-import { UserHeaderComponent } from '../user-header/user-header.component';
-import { UserItemComponent } from '../user-item/user-item.component';
-import { Subscription } from 'rxjs/Subscription';
-import { UserHeaderDirective } from '../user-header.directive';
-import { UserDynamicComponent } from '../user-dynamic/user-dynamic.component';
-import { ComponentRef } from '@angular/core/src/linker/component_factory';
 
 @Component ( {
   selector   : 'msg-user-list',
   templateUrl: './user-list.component.html',
   styleUrls  : [ './user-list.component.scss' ]
 } )
-export class UserListComponent implements OnInit, AfterViewInit, OnDestroy, AfterContentInit {
+export class UserListComponent implements OnInit {
 
-  @ViewChild ( UserHeaderComponent )
-  header: UserHeaderComponent;
-
-  @ViewChild ( 'hr' )
-  tempRef: TemplateRef<HTMLHRElement>;
-
-  @ViewChildren ( UserItemComponent )
-  userItems: QueryList<UserItemComponent>;
-
-  @ContentChild ( UserHeaderDirective, { read: TemplateRef } )
-  headerTempRef: TemplateRef<any>;
-
-  private subscription: Subscription;
-
-  items: number[]       = [ 1,
-                            2,
-                            3,
-                            4,
-                            5
+  items: string[] = [ 'saban',
+                      'peter',
+                      'franz'
   ];
-  dynamicComponentClass = UserDynamicComponent;
 
-  constructor ( private viewContainerRef: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver ) {
-  }
+  constructor () {}
 
   ngOnInit () {
-    const compFactory: ComponentFactory<UserDynamicComponent> = this.componentFactoryResolver.resolveComponentFactory ( UserDynamicComponent );
-    const dynUserRef: ComponentRef<UserDynamicComponent>      = this.viewContainerRef.createComponent<UserDynamicComponent> ( compFactory );
-    console.log ( dynUserRef );
   }
 
-  ngAfterContentInit (): void {
-    console.log ( 'ngAfterContentInit', this.headerTempRef );
-    this.viewContainerRef.insert ( this.headerTempRef.createEmbeddedView ( null ) );
+  changeFirstItem () {
+    this.items[ 0 ] = this.items[ 0 ] = 'angular';
   }
-
-  ngAfterViewInit (): void {
-    console.log ( 'ngAfterViewInit', this.header );
-    this.logItems ();
-    this.subscription = this.userItems.changes.subscribe ( () => this.logItems () );
-
-    const embeddedViewRef: EmbeddedViewRef<HTMLHRElement>  = this.viewContainerRef.createEmbeddedView ( this.tempRef );
-    const embeddedViewRef2: EmbeddedViewRef<HTMLHRElement> = this.tempRef.createEmbeddedView ( null );
-    this.viewContainerRef.insert ( embeddedViewRef2 );
-  }
-
-  ngOnDestroy (): void {
-    this.subscription.unsubscribe ();
-    this.subscription = undefined;
-  }
-
-  delItem () {
-    this.items.pop ();
-  }
-
-  private logItems () {
-    console.log ( this.userItems.toArray () );
-  }
-
 }

@@ -16,6 +16,7 @@ import { UserHeaderComponent } from '../user-header/user-header.component';
 import { UserItemComponent } from '../user-item/user-item.component';
 import { Subscription } from 'rxjs/Subscription';
 import { UserHeaderDirective } from '../user-header.directive';
+import { UserDynamicComponent } from '../user-dynamic/user-dynamic.component';
 
 @Component ( {
   selector   : 'msg-user-list',
@@ -44,6 +45,7 @@ export class UserListComponent implements OnInit, AfterViewInit, OnDestroy, Afte
                       4,
                       5
   ];
+  dynamicComponentClass = UserDynamicComponent;
 
   constructor ( private viewContainerRef: ViewContainerRef ) {
   }

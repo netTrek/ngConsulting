@@ -8,20 +8,9 @@ import { UserService } from '../user.service';
 } )
 export class UserComponent implements OnInit {
 
-  items: number[] = [ 1,
-                      2,
-                      3,
-                      4,
-                      5
-  ];
-
   constructor ( public $user: UserService ) {
   }
 
   ngOnInit () {
-  }
-
-  delItem () {
-    this.items.pop();
   }
 }

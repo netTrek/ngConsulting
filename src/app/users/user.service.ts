@@ -1,11 +1,22 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-@Injectable()
+@Injectable ()
 export class UserService {
 
-  name: string;
+  public name$: BehaviorSubject<string> = new BehaviorSubject<string> ( 'saban' );
 
-  constructor() {
+  get name (): string {
+    return this.name$.getValue ();
+  }
+
+  set name ( value: string ) {
+    if ( this.name !== value ) {
+      this.name$.next ( value );
+    }
+  }
+
+  constructor () {
     // console.log('create user service', name);
   }
 

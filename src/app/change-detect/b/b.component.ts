@@ -1,12 +1,14 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { LogClass } from '../log-class';
 
+let count = 0;
+
 @Component({
   selector: 'msg-b',
   changeDetection: ChangeDetectionStrategy.Default,
   template: `
     <p>
-      b works - {{fromA}}!
+      b works - {{fromA}} -  {{name}}!
     </p>
     <msg-c></msg-c><button (click)="1+1">1+1</button>
   `,
@@ -23,8 +25,11 @@ export class BComponent extends LogClass {
   @Input()
   fromA: any;
 
+  @Input()
+  name: string;
+
   constructor () {
-    super ( 'b', true, '\t' );
+    super ( `b${++count}`, true, '\t' );
   }
 
 }

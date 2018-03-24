@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { LogClass } from '../log-class';
+import { setInterval } from 'timers';
+import { UserService } from '../../users/user.service';
+
+let count = 0;
 
 @Component({
   selector: 'msg-a',
@@ -8,12 +12,14 @@ import { LogClass } from '../log-class';
     <p>
       a works {{aVal}}!
     </p>
-    <msg-b [fromA]="aVal"></msg-b><button (click)="chgVal()">change aVal</button><button (click)="1+1">1+1</button>
+    <msg-b [fromA]="aVal" [name]="$user.name"></msg-b> <!--   $ | async   -->
+    <button (click)="chgVal()">change aVal</button><button (click)="1+1">1+1</button>
   `,
   styles: [
     `:host {
-      display: block;
+      display: inline-block;
       background-color: red;
+      width: 40%;
     }`
   ]
 })
@@ -22,8 +28,14 @@ export class AComponent extends LogClass {
   val = 1;
   aVal = 'aVal';
 
-  constructor () {
-    super ( 'a' );
+  constructor ( public $user: UserService ) {
+    super ( `a${++count}` );
+    let c = count;
+    setInterval( () => {
+      if ( this.aVal.indexOf('aVal') !== -1 ) {
+        this.aVal = 'aVal' + (++c);
+      }
+    }, 500 );
   }
 
   chgVal () {

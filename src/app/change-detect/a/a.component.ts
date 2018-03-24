@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { LogClass } from '../log-class';
-import { setInterval } from 'timers';
 import { UserService } from '../../users/user.service';
 
 let count = 0;

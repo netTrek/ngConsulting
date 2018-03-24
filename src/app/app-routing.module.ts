@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'user', loadChildren: './users/users.module#UsersModule' },
   { path: 'home', loadChildren: './home/home.module#HomeModule' },
   { path: 'cd', loadChildren: './change-detect/change-detect.module#ChangeDetectModule' },
-  { path: '**', redirectTo: 'home' },
+  { path: 'form', loadChildren: './form/form.module#FormModule' },
+  { path: '**', redirectTo: 'form' },
 ];
 
 @NgModule({

@@ -1,0 +1,7 @@
+<form novalidate #myForm="ngForm">
+  <input type="email" placeholder="email" name="email" #email="ngModel" ngModel>
+  <input type="password" placeholder="password" name="password" #password="ngModel" ngModel>
+</form>
+<p>{{myForm.value | json}}</p>
+<p>{{myForm.controls.email?.value | json}}</p>
+<p>{{password.value | json}}</p>

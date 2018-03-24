@@ -3,6 +3,8 @@ import {
   OnInit, SimpleChanges
 } from '@angular/core';
 
+const logging = false;
+
 export abstract class LogClass implements OnInit,
                                  OnChanges,
                                  OnInit,
@@ -49,7 +51,7 @@ export abstract class LogClass implements OnInit,
   }
 
   private log ( ...rest: any[] ) {
-    if ( this.showLogs ) {
+    if ( logging && this.showLogs ) {
       console.log.apply( null, rest );
     }
   }

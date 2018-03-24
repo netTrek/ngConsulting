@@ -20,7 +20,7 @@ export class UserItemComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges ( changes: SimpleChanges ): void {
-    console.log ( changes );
+    // console.log ( changes );
   }
 
   @HostListener('click')

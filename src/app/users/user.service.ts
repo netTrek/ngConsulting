@@ -6,7 +6,7 @@ export class UserService {
   name: string;
 
   constructor() {
-    console.log('create user service', name);
+    // console.log('create user service', name);
   }
 
 }

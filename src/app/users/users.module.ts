@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule, ValueProvider } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -7,15 +7,34 @@ import { UserItemComponent } from './user-item/user-item.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { UserHeaderDirective } from './user-header.directive';
 import { UserDynamicComponent } from './user-dynamic/user-dynamic.component';
+import { ForRoleDirective } from './for-role.directive';
+import { strictEqual } from 'assert';
 
-@NgModule({
-  imports: [
+export const ROLE: InjectionToken<string> = new InjectionToken ( 'userRole' );
+
+@NgModule ( {
+  imports        : [
     CommonModule,
-    RouterModule.forChild( [ {path: '', component: UserComponent} ] )
+    RouterModule.forChild ( [ { path: '', component: UserComponent } ] )
   ],
-  declarations: [UserComponent, UserListComponent, UserItemComponent, UserHeaderComponent, UserHeaderDirective, UserDynamicComponent],
-  providers: [],
-  exports: [UserComponent, UserListComponent, UserItemComponent, UserHeaderComponent, UserHeaderDirective, UserDynamicComponent],
-  entryComponents: [UserDynamicComponent]
-})
-export class UsersModule { }
+  declarations   : [ UserComponent,
+                     UserListComponent,
+                     UserItemComponent,
+                     UserHeaderComponent,
+                     UserHeaderDirective,
+                     UserDynamicComponent,
+                     ForRoleDirective
+  ],
+  providers      : [ <ValueProvider>{ provide: ROLE, useValue: 'admin' } ],
+  exports        : [ UserComponent,
+                     UserListComponent,
+                     UserItemComponent,
+                     UserHeaderComponent,
+                     UserHeaderDirective,
+                     UserDynamicComponent,
+                     ForRoleDirective
+  ],
+  entryComponents: [ UserDynamicComponent ]
+} )
+export class UsersModule {
+}

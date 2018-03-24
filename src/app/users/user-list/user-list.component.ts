@@ -10,6 +10,8 @@ import {
 } )
 export class UserListComponent implements OnInit {
 
+  role = 'admin';
+
   items: string[] = [ 'saban',
                       'peter',
                       'franz'
@@ -27,4 +29,9 @@ export class UserListComponent implements OnInit {
   onNameSelected ( name: string ) {
     console.log ( 'selected Usr', name );
   }
+
+  chgRole () {
+    this.role = this.role === 'admin' ? 'user' : 'admin';
+  }
+
 }

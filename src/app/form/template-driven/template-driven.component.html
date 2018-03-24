@@ -1,7 +1,16 @@
 <form novalidate #myForm="ngForm">
-  <input type="email" placeholder="email" name="email" #email="ngModel" ngModel>
-  <input type="password" placeholder="password" name="password" #password="ngModel" ngModel>
+  <input type="text"
+         autocomplete="name"
+         placeholder="name"
+         name="name"
+         #name="ngModel"
+         ngModel
+         >
+  <span ngModelGroup="credentials">
+    <input name="email"
+           #email="ngModel" ngModel>
+    <input name="password"
+           #password="ngModel" ngModel>
+  </span>
 </form>
 <p>{{myForm.value | json}}</p>
-<p>{{myForm.controls.email?.value | json}}</p>
-<p>{{password.value | json}}</p>

@@ -24,7 +24,7 @@ export const FUTURE_VALIDATOR: StaticProvider = {
   selector: '[msgFutureValidator][formControlName][type="date"],[msgFutureValidator][formControl][type="date"],[msgFutureValidator][ngModel][type="date"]',
   providers: [ FUTURE_VALIDATOR]
 } )
-export class FutureValidatorDirective implements Validator{
+export class FutureValidatorDirective implements Validator {
 
   constructor () {}
 

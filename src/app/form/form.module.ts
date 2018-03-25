@@ -1,17 +1,26 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { FormsComponent } from './forms/forms.component';
 import { RouterModule } from '@angular/router';
 import { TemplateDrivenComponent } from './template-driven/template-driven.component';
 import { FormsModule } from '@angular/forms';
+import { FormaterDirective } from './formater.directive';
 
-@NgModule({
-  imports: [
+@NgModule ( {
+  imports     : [
     CommonModule,
-    RouterModule.forChild( [ {path: '', component: FormsComponent} ] ),
+    RouterModule.forChild ( [ { path: '', component: FormsComponent } ] ),
     FormsModule
   ],
-  declarations: [FormsComponent, TemplateDrivenComponent],
-  exports: [FormsComponent, TemplateDrivenComponent]
-})
-export class FormModule { }
+  providers   : [ DecimalPipe ],
+  declarations: [ FormsComponent,
+                  TemplateDrivenComponent,
+                  FormaterDirective
+  ],
+  exports     : [ FormsComponent,
+                  TemplateDrivenComponent,
+                  FormaterDirective
+  ]
+} )
+export class FormModule {
+}

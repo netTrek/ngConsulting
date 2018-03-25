@@ -6,6 +6,7 @@ import { TemplateDrivenComponent } from './template-driven/template-driven.compo
 import { FormsModule } from '@angular/forms';
 import { FormaterDirective } from './formater.directive';
 import { EqualValidatorDirective } from './equal-validator.directive';
+import { FutureValidatorDirective } from './future-validator.directive';
 
 @NgModule ( {
   imports     : [
@@ -17,12 +18,14 @@ import { EqualValidatorDirective } from './equal-validator.directive';
   declarations: [ FormsComponent,
                   TemplateDrivenComponent,
                   FormaterDirective,
-                  EqualValidatorDirective
+                  EqualValidatorDirective,
+                  FutureValidatorDirective
   ],
   exports     : [ FormsComponent,
                   TemplateDrivenComponent,
                   FormaterDirective,
-                  EqualValidatorDirective
+                  EqualValidatorDirective,
+                  FutureValidatorDirective
   ]
 } )
 export class FormModule {

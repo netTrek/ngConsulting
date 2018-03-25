@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { TemplateDrivenComponent } from './template-driven/template-driven.component';
 import { FormsModule } from '@angular/forms';
 import { FormaterDirective } from './formater.directive';
+import { EqualValidatorDirective } from './equal-validator.directive';
 
 @NgModule ( {
   imports     : [
@@ -15,11 +16,13 @@ import { FormaterDirective } from './formater.directive';
   providers   : [ DecimalPipe ],
   declarations: [ FormsComponent,
                   TemplateDrivenComponent,
-                  FormaterDirective
+                  FormaterDirective,
+                  EqualValidatorDirective
   ],
   exports     : [ FormsComponent,
                   TemplateDrivenComponent,
-                  FormaterDirective
+                  FormaterDirective,
+                  EqualValidatorDirective
   ]
 } )
 export class FormModule {

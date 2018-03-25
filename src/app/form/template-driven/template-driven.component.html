@@ -7,8 +7,7 @@
            placeholder="name"
            name="name"
            #name="ngModel"
-           msgFormater
-           [ngModel]="initVal.name"  required
+           [ngModel]="initVal.name" required
     >
     <span ngModelGroup="credentials">
         <input name="email" #email="ngModel" [ngModel]="initVal.credentials.email" autocomplete="email" type="email"
@@ -19,6 +18,8 @@
         </ng-template>
         <input name="password" #password="ngModel" [ngModel]="initVal.credentials.password" autocomplete="password"
                type="password" placeholder="password"  required>
+        <input name="password2" #password2="ngModel" ngModel type="password" placeholder="password"
+               [msgEqualValidator]="password.value" autocomplete="password2">
         </span>
 
     <button type="submit" [disabled]="myForm.invalid || !myForm.dirty">senden</button>
@@ -26,4 +27,6 @@
 
   </form>
 
-  {{name.value}}
+  <p>{{myForm.errors | json}}</p>
+  <p>{{password.errors | json}}</p>
+  <p>{{password2.errors | json}}</p>

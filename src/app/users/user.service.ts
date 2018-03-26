@@ -5,6 +5,8 @@ export class UserService {
 
   userName = 'Saban Ünlü';
 
-  constructor() { }
+  constructor() {
+    console.log ( 'userService generated' );
+  }
 
 }

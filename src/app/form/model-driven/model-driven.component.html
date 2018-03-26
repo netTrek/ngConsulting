@@ -5,17 +5,17 @@
   <input type="text"
          autocomplete="name"
          placeholder="name"
-         formControlName="name"
+         [formControl]="nameCtrl"
   >
-  <span formGroupName="credentials">
+  <span [formGroup]="credentialsGroup">
         <input type="email" autocomplete="email"
-               placeholder="email" formControlName="email" >
+               placeholder="email" [formControl]="emailCtrl" >
         <ng-template [ngIf]="emailCtrl.errors">
-          <div *ngIf="emailCtrl.errors?.required">Dieser Wert ist erforderlich</div>
-          <div *ngIf="emailCtrl.errors?.email">Tragen Sie eine gültige Mail Adresse ein</div>
+          <div *ngIf="emailCtrl.hasError( 'required') ">Dieser Wert ist erforderlich</div>
+          <div *ngIf="emailCtrl.hasError( 'email' )">Tragen Sie eine gültige Mail Adresse ein</div>
         </ng-template>
         <input type="password" autocomplete="password"
-               placeholder="password" formControlName="password">
+               placeholder="password" [formControl]="passwordCtrl">
         </span>
 
   <button type="submit" [disabled]="myForm.invalid || !myForm.dirty">senden</button>

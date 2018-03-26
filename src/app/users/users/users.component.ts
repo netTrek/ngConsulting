@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'msg-users',
   templateUrl: './users.component.html',
-  styleUrls: [ './users.component.scss' ]
+  styleUrls: [ './users.component.scss' ],
+  providers: [UserService]
 })
 export class UsersComponent implements OnInit {
 

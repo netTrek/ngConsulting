@@ -5,11 +5,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:aot": "ng serve --aot --host 0.0.0.0 --open --proxy-config src/mock/proxy.config.json",
+    "start:aot:saban": "ng serve --aot -e saban",
     "start:prod": "ng serve --prod",
     "build": "ng build --prod",
+    "build:stats": "ng build --stats-json",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "webpack-bundle-analyzer": "webpack-bundle-analyzer dist/stats.json",
+    "json-server": "json-server -w src/mock/db.json"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +41,7 @@
     "codelyzer": "^4.0.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
+    "json-server": "^0.12.1",
     "karma": "~2.0.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "^1.2.1",
@@ -44,6 +50,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "typescript": "~2.5.3",
+    "webpack-bundle-analyzer": "^2.11.1"
   }
 }

@@ -12,3 +12,7 @@ export class AppComponent {
     console.log ( environment.endpoint );
   }
 }
+// ng build --stats-json
+// npm i webpack-bundle-analyzer --save-dev
+// package.json erweitern (neuer Task)
+// "webpack-bundle-analyzer": "webpack-bundle-analyzer dist/stats.json"

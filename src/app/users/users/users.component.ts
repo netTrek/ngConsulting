@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,7 +9,9 @@ import { UserService } from '../user.service';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  constructor( @Inject('msg') msgValue: string ) {
+    console.log ( msgValue );
+  }
 
   ngOnInit() {
   }

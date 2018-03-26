@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ValueProvider } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,7 +16,9 @@ import { UsersModule } from './users/users.module';
     AppRoutingModule,
     UsersModule
   ],
-  providers: [],
+  providers: [
+    <ValueProvider>{ provide: 'msg', useValue: 'defined in appModule', multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

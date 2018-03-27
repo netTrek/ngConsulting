@@ -12,6 +12,12 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
 
+  users: any[] = [
+    {id: 1, name: 'saban', city: 'dorsten' },
+    {id: 2, name: 'frank', city: 'dorsten' }
+  ];
+
+
   constructor( @Inject( MSG_TOKEN ) msgValue: string,
                @Inject('companies') companies: any[],
                @Inject('endpoint') endpoint: string,

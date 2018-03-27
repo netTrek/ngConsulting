@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, SkipSelf } from '@angular/core';
+import { Component, Inject, Input, OnInit, SkipSelf } from '@angular/core';
 import { UserService } from '../user.service';
 import { MyClass } from '../../app.module';
 
@@ -8,6 +8,9 @@ import { MyClass } from '../../app.module';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+
+  @Input()
+  user: {id: number, name: string, city: string };
 
   constructor( public $user: UserService,
                @Inject('myClass') myClass: MyClass[]) {

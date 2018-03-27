@@ -21,11 +21,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       this.subscription = undefined;
     }
   }
-
   ngOnInit() {
-
-    console.log ( 'init user Detail' );
-
     this.subscription = this.route.paramMap.subscribe( next => {
       this.userId = parseInt( next.get('userId'), 10 );
       // if ( isNaN( this.userId ) ) {
@@ -34,8 +30,6 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       if ( isNaN( this.userId ) ) {
         this.router.navigate( ['users'] );
       }
-    })
-
+    });
   }
-
 }

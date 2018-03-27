@@ -2,7 +2,6 @@
   List
 </h4>
 
-<msg-user></msg-user>
-<msg-user></msg-user>
+<msg-user *ngFor="let user of users" [user]="user"></msg-user>
 
 <button (click)="goHome()">go home</button>

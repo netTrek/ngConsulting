@@ -9,7 +9,7 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
 
 const routes: Routes = [
   { path      : '',  pathMatch : 'full', redirectTo: 'home' },
-  { path     : 'home', component: HomeComponent },
+  { path     : 'home', component: HomeComponent, data: { key: 'saban'} },
   { path     : 'users', component: UsersComponent },
   { path     : 'user/:userId', component: UserDetailComponent },
   { path     : 'contact', component: ContactComponent,

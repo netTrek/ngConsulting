@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { environment } from '../environments/environment';
+import { HomeModule } from './home/home.module';
 
 export interface MyClass {
   val: string;
@@ -32,7 +33,8 @@ export class MyClass2 implements MyClass {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UsersModule
+    UsersModule,
+    HomeModule
   ],
   providers: [
     <ClassProvider>{ provide: 'myClass', useClass: MyClass1, multi: true },

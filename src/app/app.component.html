@@ -2,9 +2,11 @@
   Welcome to {{ title }} {{$user.userName}}!
 </h1>
 
-<msg-users></msg-users>
-<msg-users></msg-users>
-
-<button (click)="$user.userName='new'">click to change on Root</button>
+<nav>
+  <a routerLink="home" routerLinkActive="active">home</a>
+  <a routerLink="users" routerLinkActive="active">users</a>
+</nav>
 
 <router-outlet></router-outlet>
+
+<button (click)="$user.userName='new'">click to change on Root</button>

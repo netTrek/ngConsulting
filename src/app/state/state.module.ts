@@ -4,13 +4,10 @@ import { StoreModule } from '@ngrx/store';
 import { routerReducer, RouterReducerState, RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { environment } from '../../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { Params, RouterStateSnapshot } from '@angular/router';
-
-export interface RouterStateUrl {
-  url: string;
-  params: Params;
-  queryParams: Params;
-}
+import { RouterStateSnapshot } from '@angular/router';
+import { RouterStateUrl } from './router-state-url.interface';
+import { AppEffectsService } from './app-effects.service';
+import { EffectsModule } from '@ngrx/effects';
 
 export interface State {
   router: RouterReducerState<RouterStateUrl>;
@@ -40,9 +37,11 @@ export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
     StoreRouterConnectingModule.forRoot ({
       stateKey: 'router'
     }),
+    EffectsModule.forRoot( [ AppEffectsService ] ),
     ! environment.production ? StoreDevtoolsModule.instrument () : []
   ],
-  declarations: []
+  declarations: [],
+  providers: [  ]
 } )
 export class StateModule {
   constructor ( @Optional () @SkipSelf () parentModule: StateModule ) {

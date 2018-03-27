@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Inject, OnInit, ViewEncapsulation }
 import { UserService } from '../user.service';
 import { MyClass } from '../../app.module';
 import { MSG_TOKEN } from '../users.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'msg-users',
@@ -14,11 +15,14 @@ export class UsersComponent implements OnInit {
   constructor( @Inject( MSG_TOKEN ) msgValue: string,
                @Inject('companies') companies: any[],
                @Inject('endpoint') endpoint: string,
-               @Inject('condition') classInstance: MyClass) {
+               @Inject('condition') classInstance: MyClass,
+               private router: Router ) {
     console.log ( classInstance );
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  goHome () {
+    this.router.navigate( ['home'] );
+  }
 }

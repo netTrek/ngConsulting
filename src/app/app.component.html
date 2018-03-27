@@ -3,8 +3,9 @@
 </h1>
 
 <nav>
-  <a routerLink="home" routerLinkActive="active">home</a>
+  <a [routerLink]="['home']" routerLinkActive="active">home</a>
   <a routerLink="users" routerLinkActive="active">users</a>
+  <a routerLink="contact" routerLinkActive="active">contact</a>
 </nav>
 
 <router-outlet></router-outlet>

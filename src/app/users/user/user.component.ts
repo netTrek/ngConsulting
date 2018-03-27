@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { UsersState } from '../store/model/users.state';
-import { getUsersList } from '../store/reducers/users.reducer';
+import { UsersState } from '../_store/model/users.state';
+import { getUsersList } from '../_store/reducers/users.reducer';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../store/model/user';
-import { LoadUsersList } from '../store/actions/users-list.action';
+import { User } from '../_store/model/user';
+import { LoadUsersList } from '../_store/actions/users-list.action';
 
 @Component ( {
   selector   : 'msg-user',

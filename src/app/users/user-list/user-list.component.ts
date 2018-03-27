@@ -2,7 +2,7 @@ import {
   Component, Input,
   OnInit
 } from '@angular/core';
-import { User } from '../store/model/user';
+import { User } from '../_store/model/user';
 
 @Component ( {
   selector   : 'msg-user-list',

@@ -10,10 +10,10 @@ import { UserDynamicComponent } from './user-dynamic/user-dynamic.component';
 import { ForRoleDirective } from './for-role.directive';
 import { ROLE } from './users.token';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './store/reducers/users.reducer';
-import { StoreFeatureConst } from './store/store-feature-const.enum';
+import { reducers } from './_store/reducers/users.reducer';
+import { StoreFeatureConst } from './_store/store-feature-const.enum';
 import { EffectsModule } from '@ngrx/effects';
-import { UsersListEffect } from './store/effects/usersList.effect';
+import { UsersListEffect } from './_store/effects/usersList.effect';
 
 @NgModule ( {
   imports        : [

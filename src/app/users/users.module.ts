@@ -6,16 +6,20 @@ import { UserComponent } from './user/user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { RouterModule } from '@angular/router';
 import { UserResolverService } from './user-resolver.service';
+import { HttpClientModule } from '@angular/common/http';
 
 export const MSG_TOKEN: InjectionToken<string> = new InjectionToken<string>( 'msgToken' );
 
 @NgModule({
   imports: [
-    CommonModule, RouterModule
+    CommonModule, RouterModule,
+    HttpClientModule
   ],
   declarations: [UsersComponent, UserComponent, UserDetailComponent],
   exports: [UsersComponent, UserComponent, UserDetailComponent],
-  providers: [UserService,
+  providers: [
+    UserService,
+    UserResolverService,
   <ValueProvider>{ provide: MSG_TOKEN, useValue: 'msg AG'},
   <ValueProvider>{ provide: 'endpointProtocol', useValue: 'http'},
   <ValueProvider>{ provide: 'endpointUrl', useValue: 'netTrek.de'},
@@ -24,8 +28,7 @@ export const MSG_TOKEN: InjectionToken<string> = new InjectionToken<string>( 'ms
   <ExistingProvider>{ provide: 'companies', useExisting: 'netTrek', multi: true },
   <FactoryProvider>{ provide: 'endpoint', useFactory: ( protocol: string, url: string ) => {
     return `${protocol}://${url}`;
-    }, deps: ['endpointProtocol', 'endpointUrl']},
-  UserResolverService
+    }, deps: ['endpointProtocol', 'endpointUrl']}
   ]
 })
 export class UsersModule { }

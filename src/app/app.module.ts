@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserService } from './users/user.service';
 import { ChangeDetectModule } from './change-detect/change-detect.module';
+import { StateModule } from './state/state.module';
 
 @NgModule ( {
   declarations: [
@@ -13,7 +14,7 @@ import { ChangeDetectModule } from './change-detect/change-detect.module';
   ],
   imports     : [
     BrowserModule,
-    AppRoutingModule, ChangeDetectModule
+    AppRoutingModule, ChangeDetectModule, StateModule
   ],
   providers   : [
     UserService,

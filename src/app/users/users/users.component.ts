@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { UserService } from '../user.service';
+import { MyClass } from '../../app.module';
 
 @Component({
   selector: 'msg-users',
@@ -9,8 +10,11 @@ import { UserService } from '../user.service';
 })
 export class UsersComponent implements OnInit {
 
-  constructor( @Inject('msg') msgValue: string ) {
-    console.log ( msgValue );
+  constructor( @Inject('msg') msgValue: string,
+               @Inject('companies') companies: any[],
+               @Inject('endpoint') endpoint: string,
+               @Inject('condition') classInstance: MyClass) {
+    console.log ( classInstance );
   }
 
   ngOnInit() {

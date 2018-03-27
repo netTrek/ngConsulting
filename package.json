@@ -6,6 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start:aot": "ng serve --aot --host 0.0.0.0 --open --proxy-config src/mock/proxy.config.json",
+    "start:prod:proxy": "ng serve --aot --host 0.0.0.0 --prod --open --proxy-config src/mock/proxy.config.json",
     "start:aot:saban": "ng serve --aot -e saban",
     "start:prod": "ng serve --prod",
     "build": "ng build --prod",

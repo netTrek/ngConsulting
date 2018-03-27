@@ -14,7 +14,7 @@ import { StateModule } from './state/state.module';
   ],
   imports     : [
     BrowserModule,
-    AppRoutingModule, ChangeDetectModule, StateModule
+    AppRoutingModule, ChangeDetectModule, StateModule.forRoot()
   ],
   providers   : [
     UserService,

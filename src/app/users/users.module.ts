@@ -1,4 +1,4 @@
-import { InjectionToken, NgModule, ValueProvider } from '@angular/core';
+import { NgModule, ValueProvider } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -8,9 +8,7 @@ import { UserHeaderComponent } from './user-header/user-header.component';
 import { UserHeaderDirective } from './user-header.directive';
 import { UserDynamicComponent } from './user-dynamic/user-dynamic.component';
 import { ForRoleDirective } from './for-role.directive';
-import { strictEqual } from 'assert';
-
-export const ROLE: InjectionToken<string> = new InjectionToken ( 'userRole' );
+import { ROLE } from './users.token';
 
 @NgModule ( {
   imports        : [

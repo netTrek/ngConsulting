@@ -1,6 +1,6 @@
 import { Directive, EmbeddedViewRef, Inject, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { isString } from 'util';
-import { ROLE } from './users.module';
+import { ROLE } from './users.token';
 
 @Directive ( {
   selector: '[msgForRole]'

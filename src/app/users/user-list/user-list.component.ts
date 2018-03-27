@@ -1,7 +1,8 @@
 import {
-  Component,
+  Component, Input,
   OnInit
 } from '@angular/core';
+import { User } from '../store/model/user';
 
 @Component ( {
   selector   : 'msg-user-list',
@@ -12,10 +13,8 @@ export class UserListComponent implements OnInit {
 
   role = 'admin';
 
-  items: string[] = [ 'saban',
-                      'peter',
-                      'franz'
-  ];
+  @Input()
+  items: User[];
 
   constructor () {}
 
@@ -23,7 +22,7 @@ export class UserListComponent implements OnInit {
   }
 
   changeFirstItem () {
-    this.items[ 0 ] = this.items[ 0 ] = 'angular';
+    // this.items[ 0 ] = this.items[ 0 ] = 'angular';
   }
 
   onNameSelected ( name: string ) {

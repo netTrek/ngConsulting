@@ -5,35 +5,20 @@ import { routerReducer, RouterReducerState, RouterStateSerializer, StoreRouterCo
 import { environment } from '../../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RouterStateSnapshot } from '@angular/router';
-import { RouterStateUrl } from './router-state-url.interface';
+import { RouterStateUrl } from './model/router-state-url.interface';
 import { AppEffectsService } from './app-effects.service';
 import { EffectsModule } from '@ngrx/effects';
+import { RouterStateUrlSerializer } from './model/router-state-url-serializer';
+import { appMetaReducers, appReducer } from './app.reducer';
 
 export interface State {
   router: RouterReducerState<RouterStateUrl>;
 }
 
-export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
-  serialize(routerState: RouterStateSnapshot): RouterStateUrl {
-    let route = routerState.root;
-
-    while (route.firstChild) {
-      route = route.firstChild;
-    }
-
-    const { url, root: { queryParams } } = routerState;
-    const { params } = route;
-
-    // Only return an object including the URL, params and query params
-    // instead of the entire snapshot
-    return { url, params, queryParams };
-  }
-}
-
 @NgModule ( {
   imports     : [
     CommonModule,
-    StoreModule.forRoot ( { router: routerReducer } ),
+    StoreModule.forRoot ( appReducer, { metaReducers: appMetaReducers } ),
     StoreRouterConnectingModule.forRoot ({
       stateKey: 'router'
     }),
@@ -54,7 +39,7 @@ export class StateModule {
     return {
       ngModule : StateModule,
       providers: [
-        { provide: RouterStateSerializer, useClass: CustomSerializer }
+        { provide: RouterStateSerializer, useClass: RouterStateUrlSerializer }
       ]
     };
   }

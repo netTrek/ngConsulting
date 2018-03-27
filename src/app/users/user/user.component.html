@@ -1,6 +1,6 @@
 <p>
-  user {{$user.name}}!
+  user!
 </p>
-<msg-user-list>
+<msg-user-list [items]="usersList$ | async">
   <h1 *msgUserHeader>Saban</h1>
 </msg-user-list>

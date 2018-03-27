@@ -9,11 +9,15 @@ import { UserHeaderDirective } from './user-header.directive';
 import { UserDynamicComponent } from './user-dynamic/user-dynamic.component';
 import { ForRoleDirective } from './for-role.directive';
 import { ROLE } from './users.token';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers/users.reducer';
+import { StoreFeatureConst } from './store/store-feature-const.enum';
 
 @NgModule ( {
   imports        : [
     CommonModule,
-    RouterModule.forChild ( [ { path: '', component: UserComponent } ] )
+    RouterModule.forChild ( [ { path: '', component: UserComponent } ] ),
+    StoreModule.forFeature( StoreFeatureConst.name, reducers  )
   ],
   declarations   : [ UserComponent,
                      UserListComponent,

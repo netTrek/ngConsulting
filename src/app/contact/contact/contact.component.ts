@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Host, Injector, OnInit } from '@angular/core';
+import { UserService } from '../../users/user.service';
 
 @Component({
   selector: 'msg-contact',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor( $user: UserService, injector: Injector  ) {
+  }
 
   ngOnInit() {
   }

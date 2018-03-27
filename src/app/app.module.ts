@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { environment } from '../environments/environment';
 import { HomeModule } from './home/home.module';
-import { ContactModule } from './contact/contact.module';
+// import { ContactModule } from './contact/contact.module';
 
 export interface MyClass {
   val: string;
@@ -35,8 +35,8 @@ export class MyClass2 implements MyClass {
     BrowserModule,
     AppRoutingModule,
     UsersModule,
-    HomeModule,
-    ContactModule
+    HomeModule/*,
+    ContactModule*/
   ],
   providers: [
     <ClassProvider>{ provide: 'myClass', useClass: MyClass1, multi: true },

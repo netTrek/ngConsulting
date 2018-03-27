@@ -22,7 +22,10 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.url.subscribe( url => this.path = url[0].path );
+    this.route.url.subscribe( url => {
+      this.path = url[0].path;
+      // console.log ( top.location.href );
+    } );
   }
 
   changeUserName () {

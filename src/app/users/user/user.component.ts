@@ -4,6 +4,7 @@ import { UsersState } from '../store/model/users.state';
 import { getUsersList } from '../store/reducers/users.reducer';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../store/model/user';
+import { LoadUsersList } from '../store/actions/users-list.action';
 
 @Component ( {
   selector   : 'msg-user',
@@ -21,7 +22,11 @@ export class UserComponent implements OnInit {
     //   console.log ( state );
     // });
 
+    // holt im mpment nur den init State von usersList - im ersten schritt als Array
     this.usersList$ = this.store.select ( getUsersList );
+
+    // hole die Daten über effects vom Server
+    this.store.dispatch ( new LoadUsersList () );
 
   }
 }

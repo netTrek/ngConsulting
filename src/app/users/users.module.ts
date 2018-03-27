@@ -12,12 +12,15 @@ import { ROLE } from './users.token';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers/users.reducer';
 import { StoreFeatureConst } from './store/store-feature-const.enum';
+import { EffectsModule } from '@ngrx/effects';
+import { UsersListEffect } from './store/effects/usersList.effect';
 
 @NgModule ( {
   imports        : [
     CommonModule,
     RouterModule.forChild ( [ { path: '', component: UserComponent } ] ),
-    StoreModule.forFeature( StoreFeatureConst.name, reducers  )
+    StoreModule.forFeature ( StoreFeatureConst.name, reducers ),
+    EffectsModule.forFeature( [ UsersListEffect ] )
   ],
   declarations   : [ UserComponent,
                      UserListComponent,
@@ -27,7 +30,9 @@ import { StoreFeatureConst } from './store/store-feature-const.enum';
                      UserDynamicComponent,
                      ForRoleDirective
   ],
-  providers      : [ <ValueProvider>{ provide: ROLE, useValue: 'admin' } ],
+  providers      : [
+    <ValueProvider>{ provide: ROLE, useValue: 'admin' }
+  ],
   exports        : [ UserComponent,
                      UserListComponent,
                      UserItemComponent,

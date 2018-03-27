@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+import { User } from './store/model/user';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 @Injectable ()
 export class UserService {
@@ -16,8 +20,14 @@ export class UserService {
     }
   }
 
-  constructor () {
+  constructor ( private http: HttpClient ) {
     // console.log('create user service', name);
+  }
+
+  getUsers (): Observable<User[]> {
+    return this.http.get<User[]> ( 'api/users' ).pipe(
+      catchError( err => Observable.throw(err.json() ))
+    );
   }
 
 }

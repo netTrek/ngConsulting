@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UserService } from './users/user.service';
 import { ChangeDetectModule } from './change-detect/change-detect.module';
 import { StateModule } from './state/state.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule ( {
   declarations: [
@@ -14,6 +15,7 @@ import { StateModule } from './state/state.module';
   ],
   imports     : [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule, ChangeDetectModule, StateModule.forRoot()
   ],
   providers   : [

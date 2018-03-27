@@ -1,1 +1,5 @@
-{ "users": [ { "id": 1, "name": "Saban Ünlü", "city": "Dorsten" } ] }
+{ "users": [
+  { "id": 1, "name": "Saban Ünlü", "city": "Dorsten" },
+  { "id": 11, "name": "Franz Müller", "city": "Dorsten" },
+  { "id": 12, "name": "Peter Meyer", "city": "Dorsten" }
+] }

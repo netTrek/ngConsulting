@@ -1,5 +1,6 @@
 {
   "users": [
-    {"id": 1, "name":"saban", "city": "Dorsten"}
+    {"id": 1, "name":"saban", "city": "Dorsten"},
+    {"id": 2, "name":"frank", "city": "Dorsten"}
   ]
 }

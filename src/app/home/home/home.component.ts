@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe( next => {
       console.log ( next.key );
-    })
+    });
   }
 
 }

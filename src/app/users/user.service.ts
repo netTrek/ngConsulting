@@ -8,5 +8,4 @@ export class UserService {
   constructor( ) {
     console.log ( 'userService generated' );
   }
-
 }

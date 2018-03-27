@@ -5,6 +5,7 @@ import { UserService } from './user.service';
 import { UserComponent } from './user/user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { RouterModule } from '@angular/router';
+import { UserResolverService } from './user-resolver.service';
 
 export const MSG_TOKEN: InjectionToken<string> = new InjectionToken<string>( 'msgToken' );
 
@@ -23,7 +24,8 @@ export const MSG_TOKEN: InjectionToken<string> = new InjectionToken<string>( 'ms
   <ExistingProvider>{ provide: 'companies', useExisting: 'netTrek', multi: true },
   <FactoryProvider>{ provide: 'endpoint', useFactory: ( protocol: string, url: string ) => {
     return `${protocol}://${url}`;
-    }, deps: ['endpointProtocol', 'endpointUrl']}
+    }, deps: ['endpointProtocol', 'endpointUrl']},
+  UserResolverService
   ]
 })
 export class UsersModule { }

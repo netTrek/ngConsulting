@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users/users.component';
 import { UserService } from './user.service';
 import { UserComponent } from './user/user.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { RouterModule } from '@angular/router';
 
 export const MSG_TOKEN: InjectionToken<string> = new InjectionToken<string>( 'msgToken' );
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule, RouterModule
   ],
-  declarations: [UsersComponent, UserComponent],
-  exports: [UsersComponent, UserComponent],
+  declarations: [UsersComponent, UserComponent, UserDetailComponent],
+  exports: [UsersComponent, UserComponent, UserDetailComponent],
   providers: [UserService,
   <ValueProvider>{ provide: MSG_TOKEN, useValue: 'msg AG'},
   <ValueProvider>{ provide: 'endpointProtocol', useValue: 'http'},

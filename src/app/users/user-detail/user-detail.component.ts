@@ -1,0 +1,41 @@
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+
+@Component({
+  selector: 'msg-user-detail',
+  templateUrl: './user-detail.component.html',
+  styleUrls: ['./user-detail.component.scss']
+})
+export class UserDetailComponent implements OnInit, OnDestroy {
+
+
+  userId: number;
+  private subscription: Subscription;
+
+  constructor( private route: ActivatedRoute, private router: Router ) { }
+
+  ngOnDestroy (): void {
+    if ( this.subscription ) {
+      this.subscription.unsubscribe();
+      this.subscription = undefined;
+    }
+  }
+
+  ngOnInit() {
+
+    console.log ( 'init user Detail' );
+
+    this.subscription = this.route.paramMap.subscribe( next => {
+      this.userId = parseInt( next.get('userId'), 10 );
+      // if ( isNaN( this.userId ) ) {
+      //   throw new Error( 'numbers only');
+      // }
+      if ( isNaN( this.userId ) ) {
+        this.router.navigate( ['users'] );
+      }
+    })
+
+  }
+
+}

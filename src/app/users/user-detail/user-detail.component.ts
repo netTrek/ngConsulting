@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'msg-user-detail',
@@ -11,9 +13,11 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
 
   userId: number;
+  user: User;
   private subscription: Subscription;
 
-  constructor( private route: ActivatedRoute, private router: Router ) { }
+  constructor( private route: ActivatedRoute, private router: Router,
+               private $user: UserService ) { }
 
   ngOnDestroy (): void {
     if ( this.subscription ) {
@@ -29,6 +33,10 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       // }
       if ( isNaN( this.userId ) ) {
         this.router.navigate( ['users'] );
+      } else {
+        this.$user.getUserById(this.userId).subscribe( user => {
+          this.user = user;
+        } );
       }
     });
   }

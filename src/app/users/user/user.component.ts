@@ -1,6 +1,7 @@
 import { Component, Inject, Input, OnInit, SkipSelf } from '@angular/core';
 import { UserService } from '../user.service';
 import { MyClass } from '../../app.module';
+import { User } from '../user';
 
 @Component({
   selector: 'msg-user',
@@ -10,7 +11,7 @@ import { MyClass } from '../../app.module';
 export class UserComponent implements OnInit {
 
   @Input()
-  user: {id: number, name: string, city: string };
+  user: User;
 
   constructor( public $user: UserService,
                @Inject('myClass') myClass: MyClass[]) {

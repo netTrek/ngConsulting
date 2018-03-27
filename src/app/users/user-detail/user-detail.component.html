@@ -1,6 +1,5 @@
-<p>
-  user-detail works {{userId}}!
-</p>
+<msg-user *ngIf="user"
+          [user]="user"></msg-user>
 
 
 <a [routerLink]="['../', userId-1]"><--</a> |

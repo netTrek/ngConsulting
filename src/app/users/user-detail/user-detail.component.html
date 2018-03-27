@@ -1,6 +1,9 @@
-<msg-user *ngIf="user"
+<msg-user *ngIf="user && !notValid; else elseBlock"
           [user]="user"></msg-user>
-
+<ng-template #elseBlock>
+  <h4 *ngIf="notValid">invalid ID</h4>
+  <h4 *ngIf="!notValid">wait for user</h4>
+</ng-template>
 
 <a [routerLink]="['../', userId-1]"><--</a> |
 <a [routerLink]="['../', userId+1]">--></a>

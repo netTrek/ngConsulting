@@ -1,7 +1,8 @@
-import { Component, Inject, Input, OnInit, SkipSelf } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { MyClass } from '../../app.module';
 import { User } from '../user';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'msg-user',
@@ -12,13 +13,16 @@ export class UserComponent implements OnInit {
 
   @Input()
   user: User;
+  path: string;
 
   constructor( public $user: UserService,
-               @Inject('myClass') myClass: MyClass[]) {
+               @Inject('myClass') myClass: MyClass[],
+               private route: ActivatedRoute) {
     console.log ( myClass );
   }
 
   ngOnInit() {
+    this.route.url.subscribe( url => this.path = url[0].path );
   }
 
   changeUserName () {

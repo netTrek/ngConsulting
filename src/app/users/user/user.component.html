@@ -1,4 +1,8 @@
-<a [routerLink]="['../user', user.id]">{{user.name}}</a>
+<ng-container [ngSwitch]="path">
+  <h4 *ngSwitchCase="'user'">{{user.name}}</h4>
+  <a *ngSwitchDefault [routerLink]="['../user', user.id]">{{user.name}}</a>
+</ng-container>
+
 
 
 <!--

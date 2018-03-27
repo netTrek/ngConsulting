@@ -14,6 +14,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
   userId: number;
   user: User;
+  notValid = false;
   private subscription: Subscription;
 
   constructor( private route: ActivatedRoute, private router: Router,
@@ -36,6 +37,9 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       } else {
         this.$user.getUserById(this.userId).subscribe( user => {
           this.user = user;
+          this.notValid = false;
+        }, err => {
+          this.notValid = true;
         } );
       }
     });

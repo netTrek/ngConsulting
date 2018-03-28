@@ -6,6 +6,7 @@ import { TmpViaDirComponent } from './tmp-via-dir/tmp-via-dir.component';
 import { TmpDirective } from './tmp.directive';
 import { UseTmpComponent } from './use-tmp/use-tmp.component';
 import { RoleDirective } from './role.directive';
+import { EntryComponent } from './entry/entry.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { RoleDirective } from './role.directive';
       /*{ path: '', component: DynTempComponent } --- beispiele für templateOutlet*/
       ] )
   ],
-  declarations: [DynTempComponent, TmpViaDirComponent, TmpDirective, UseTmpComponent, RoleDirective]
+  declarations: [DynTempComponent, TmpViaDirComponent, TmpDirective, UseTmpComponent, RoleDirective, EntryComponent],
+  entryComponents: [ EntryComponent ]
 })
 export class DynTempModule { }

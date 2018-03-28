@@ -7,11 +7,13 @@
   <msg-user-header>msg</msg-user-header>
 
   <msg-user-item
-    *ngFor="let item of [1,2,3,4]">
+    *ngFor="let item of items">
     item {{item}}
   </msg-user-item>
 
 </msg-user-list>
+
+<button (click)="removeLast()">remove last item</button>
 
 <router-outlet></router-outlet>
 

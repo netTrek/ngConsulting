@@ -2,7 +2,16 @@
   conten-child works!
 </p>
 
-<msg-user-header></msg-user-header>
+<msg-user-list>
+
+  <msg-user-header>msg</msg-user-header>
+
+  <msg-user-item
+    *ngFor="let item of [1,2,3,4]">
+    item {{item}}
+  </msg-user-item>
+
+</msg-user-list>
 
 <router-outlet></router-outlet>
 

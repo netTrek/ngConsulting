@@ -1,4 +1,7 @@
-import { AfterContentInit, Component, ContentChild, ContentChildren, OnInit, QueryList } from '@angular/core';
+import {
+  AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, OnInit, QueryList, Renderer2,
+  ViewChild
+} from '@angular/core';
 import { UserHeaderComponent } from '../user-header/user-header.component';
 import { UserItemComponent } from '../user-item/user-item.component';
 
@@ -7,7 +10,7 @@ import { UserItemComponent } from '../user-item/user-item.component';
   templateUrl: './user-list.component.html',
   styleUrls  : [ './user-list.component.scss' ]
 } )
-export class UserListComponent implements OnInit, AfterContentInit {
+export class UserListComponent implements OnInit, AfterContentInit, AfterViewInit {
 
   @ContentChild ( UserHeaderComponent )
   header: UserHeaderComponent;
@@ -15,7 +18,10 @@ export class UserListComponent implements OnInit, AfterContentInit {
   @ContentChildren ( UserItemComponent )
   items: QueryList<UserItemComponent>;
 
-  constructor ( ) {
+  @ViewChild ( 'line' )
+  line: ElementRef;
+
+  constructor ( private render: Renderer2 ) {
     console.log ( 'header im constructor', this.header );
   }
 
@@ -27,6 +33,11 @@ export class UserListComponent implements OnInit, AfterContentInit {
     console.log ( 'header im ngAfterContentInit', this.header );
     this.showChildInfo();
     this.items.changes.subscribe( this.showChildInfo.bind(this) );
+  }
+
+  ngAfterViewInit (): void {
+    console.log ( this.line  );
+    this.render.setStyle( this.line.nativeElement, 'border-color', 'blue' );
   }
 
   ngOnInit () {

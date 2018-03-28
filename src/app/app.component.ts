@@ -21,7 +21,8 @@ export class AppComponent {
     { label: 'user', path: ['user', this.crrUserId] },
     { label: 'users', path: ['users'] },
     { label: 'contact', path: ['contact'] },
-    { label: 'content child', path: ['contentChild'] }
+    { label: 'content child', path: ['contentChild'] },
+    { label: 'view child', path: ['viewChild'] }
   ];
 
   constructor ( public $user: UserService ) {

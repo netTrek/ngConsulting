@@ -37,6 +37,10 @@ const routes: Routes = [
     path        : 'contentChild',
     loadChildren: './content-child-sample/content-child-sample.module#ContentChildSampleModule'
   },
+  {
+    path        : 'viewChild',
+    loadChildren: './view-child-sample/view-child-sample.module#ViewChildSampleModule'
+  },
   { path: '**', redirectTo: 'home' }
 
 ];

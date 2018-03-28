@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewContainerRef } from '@angular/core';
 import { EntryComponent } from '../entry/entry.component';
 
 @Component({
@@ -6,13 +6,21 @@ import { EntryComponent } from '../entry/entry.component';
   templateUrl: './tmp-via-dir.component.html',
   styleUrls: ['./tmp-via-dir.component.scss']
 })
-export class TmpViaDirComponent implements OnInit {
+export class TmpViaDirComponent implements OnInit, AfterViewInit  {
+
   role = 'user';
   comp = EntryComponent;
 
-  constructor() { }
+  constructor( private vcr: ViewContainerRef,
+               private componentFactoryResolver: ComponentFactoryResolver ) { }
 
   ngOnInit() {
+    const compFactory = this.componentFactoryResolver.resolveComponentFactory( EntryComponent );
+    const compRef = this.vcr.createComponent( compFactory );
+    compRef.instance.name = 'hurra';
+  }
+
+  ngAfterViewInit (): void {
   }
 
   toggleRole () {

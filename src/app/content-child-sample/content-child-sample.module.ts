@@ -6,7 +6,9 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild( [] )
+    RouterModule.forChild( [{
+      path: '', component: ContenChildComponent
+    }] )
   ],
   declarations: [ContenChildComponent]
 })

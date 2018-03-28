@@ -3,10 +3,15 @@
 </h1>
 
 <nav>
-  <a [routerLink]="['home']" routerLinkActive="active">home</a>
-  <a [routerLink]="['user', crrUserId]" routerLinkActive="active">show first user</a>
-  <a routerLink="users" routerLinkActive="active">users</a>
-  <a routerLink="contact" routerLinkActive="active">contact</a>
+
+  <a *ngFor="let navItem of navInfo" [routerLink]="navItem.path" routerLinkActive="active">{{navItem.label}} | </a>
+
+
+  <!--<a [routerLink]="['home']" routerLinkActive="active">home</a> |-->
+  <!--<a [routerLink]="['user', crrUserId]" routerLinkActive="active">show first user</a> |-->
+  <!--<a routerLink="users" routerLinkActive="active">users</a> |-->
+  <!--<a routerLink="contact" routerLinkActive="active">contact</a> |-->
+  <!--<a routerLink="contentChild" routerLinkActive="active">contentChild sample</a>-->
 </nav>
 
 <router-outlet></router-outlet>

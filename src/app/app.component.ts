@@ -13,6 +13,17 @@ export class AppComponent {
 
   crrUserId = 1;
 
+  navInfo: {
+    label: string,
+    path: string | any[]
+  }[] = [
+    { label: 'home', path: ['home'] },
+    { label: 'user', path: ['user', this.crrUserId] },
+    { label: 'users', path: ['users'] },
+    { label: 'contact', path: ['contact'] },
+    { label: 'content child', path: ['contentChild'] }
+  ];
+
   constructor ( public $user: UserService ) {
     // console.log ( environment.endpoint );
   }

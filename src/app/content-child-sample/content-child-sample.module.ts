@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContenChildComponent } from './conten-child/conten-child.component';
 import { RouterModule } from '@angular/router';
+import { UserHeaderComponent } from './user-header/user-header.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import { RouterModule } from '@angular/router';
       path: '', component: ContenChildComponent
     }] )
   ],
-  declarations: [ContenChildComponent]
+  declarations: [ContenChildComponent, UserHeaderComponent]
 })
 export class ContentChildSampleModule { }

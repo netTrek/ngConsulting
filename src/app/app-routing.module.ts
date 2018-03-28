@@ -10,6 +10,7 @@ import { UserResolverService } from './users/user-resolver.service';
 import { UserGuard } from './users/user.guard';
 import { filter } from 'rxjs/operators';
 import { ContactModule } from './contact/contact.module';
+import { ContentChildSampleModule } from './content-child-sample/content-child-sample.module';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -23,7 +24,7 @@ const routes: Routes = [
   },
   { path: 'user/:userId', component: UserDetailComponent },
   {
-    path    : 'contact',
+    path        : 'contact',
     loadChildren: './contact/contact.module#ContactModule'
     // component: ContactComponent,
     // children: [
@@ -31,6 +32,10 @@ const routes: Routes = [
     //   { path: 'form', component: ContactFormComponent },
     //   { path: 'map', component: ContactMapComponent }
     // ]
+  },
+  {
+    path        : 'contentChild',
+    loadChildren: './content-child-sample/content-child-sample.module#ContentChildSampleModule'
   },
   { path: '**', redirectTo: 'home' }
 
@@ -46,9 +51,9 @@ export class AppRoutingModule {
       filter ( event => {
         return event instanceof NavigationEnd;
       } )
-    ).
-    subscribe ( event => {
-      console.log ( event );
-    } );
+    )
+          .subscribe ( event => {
+            console.log ( event );
+          } );
   }
 }

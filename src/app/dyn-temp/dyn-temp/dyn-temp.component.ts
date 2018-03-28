@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component ( {
   selector   : 'msg-dyn-temp',
@@ -13,14 +13,17 @@ export class DynTempComponent implements OnInit, AfterViewInit {
   @ViewChild ( 'tmp1' ) tmp1: TemplateRef<any>;
   @ViewChild ( 'tmp2' ) tmp2: TemplateRef<any>;
 
-  constructor () {
+  constructor ( private vcr: ViewContainerRef ) {
   }
 
   ngOnInit () {
+    // debugger
+
   }
 
   ngAfterViewInit (): void {
     // console.log ( this.tmp1, this.tmp2 );
+    this.vcr.createEmbeddedView( this.tempRef );
   }
 
   toggle () {

@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  endpoint: 'http://ba.......'
+  endpoint: 'http://ba.......',
+  role: 'admin'
 };

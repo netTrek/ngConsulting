@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  endpoint: 'http://local.......'
+  endpoint: 'http://local.......',
+  role: 'admin'
 };

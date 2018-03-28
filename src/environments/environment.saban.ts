@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  endpoint: 'http://saban.......'
+  endpoint: 'http://saban.......',
+  role: 'user'
 };

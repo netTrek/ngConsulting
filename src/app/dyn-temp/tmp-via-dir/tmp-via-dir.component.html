@@ -1,0 +1,28 @@
+<!--   Router Componente wird autmatisch erstellt -->
+
+
+<msg-use-tmp [data]="[1,2,3]">
+  <div *msgTmp>Mein Inhalt der autm. erstellt werden soll</div>
+  <!--<ng-template msgTmp>
+    <div>Mein Inhalt der autm. erstellt werden soll</div>
+  </ng-template>-->
+</msg-use-tmp>
+
+
+<!--<msg-use-tmp [data]="[1,2,3,4]">
+
+  <div *msgTmp>
+    <span>user</span> # <span>data</span>
+    <hr>
+  </div>
+
+</msg-use-tmp>-->
+
+
+<h3>{{role}}</h3>
+<h1 *msgRole="'admin'">isAdmin</h1>
+<h1 *msgRole="'user'">isUser</h1>
+
+<button (click)="toggleRole()">toggle Role</button>
+
+<!--<h1>isUser</h1>-->

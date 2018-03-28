@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ClassProvider, NgModule, ValueProvider } from '@angular/core';
+import { ClassProvider, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { environment } from '../environments/environment';
 import { HomeModule } from './home/home.module';
+
 // import { ContactModule } from './contact/contact.module';
 
 export interface MyClass {

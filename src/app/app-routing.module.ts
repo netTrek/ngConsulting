@@ -41,6 +41,10 @@ const routes: Routes = [
     path        : 'viewChild',
     loadChildren: './view-child-sample/view-child-sample.module#ViewChildSampleModule'
   },
+  {
+    path        : 'dynTemp',
+    loadChildren: './dyn-temp/dyn-temp.module#DynTempModule'
+  },
   { path: '**', redirectTo: 'home' }
 
 ];

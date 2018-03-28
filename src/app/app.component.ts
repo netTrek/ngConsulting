@@ -22,7 +22,8 @@ export class AppComponent {
     { label: 'users', path: ['users'] },
     { label: 'contact', path: ['contact'] },
     { label: 'content child', path: ['contentChild'] },
-    { label: 'view child', path: ['viewChild'] }
+    { label: 'view child', path: ['viewChild'] },
+    { label: 'dyn Temo', path: ['dynTemp'] }
   ];
 
   constructor ( public $user: UserService ) {
